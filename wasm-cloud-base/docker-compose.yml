@@ -23,10 +23,12 @@ services:
       - "5000:5000"
   wasmcloud:
     image: wasmcloud/wasmcloud_host:latest
+    command: " /opt/app/bin/wasmcloud_host foreground"
     environment:
-      WASMCLOUD_RPC_HOST: nats
-      WASMCLOUD_CTL_HOST: nats
-      WASMCLOUD_PROV_RPC_HOST: nats
+      - WASMCLOUD_RPC_HOST=nats
+      - WASMCLOUD_CTL_HOST=nats
+      - WASMCLOUD_PROV_RPC_HOST=nats
+      - DASHBOARD_HOST=${GP_HOST}
     ports:
       - "4000:4000"
       - "8080-8089:8080-8089" # Allows exposing examples on ports 8080-8089
