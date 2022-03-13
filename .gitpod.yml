@@ -1,2 +1,17 @@
 tasks:
-  - command: echo "Hello, gitpod!"
+  - init: docker-compose -f wasm-cloud-base/docker-compose.yml pull
+    command: docker-compose -f wasm-cloud-base/docker-compose.yml up
+
+github:
+  prebuilds:
+    master: true
+    pullRequests: true
+    addBadge: true
+    branches: true
+
+vscode:
+  extensions:
+    - matklad.rust-analyzer
+    - serayuzgur.crates
+    - vscode.rust
+    - bungcip.better-toml
