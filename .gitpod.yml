@@ -1,6 +1,6 @@
 tasks:
-  - init: docker-compose -f wasm-cloud-base/docker-compose.yml pull
-    command: docker-compose -f wasm-cloud-base/docker-compose.yml up
+  - init: sh wasm-cloud-base/init.sh
+    command: sh wasm-cloud-base/command.sh
 
 github:
   prebuilds:
