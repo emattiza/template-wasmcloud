@@ -2,6 +2,11 @@ tasks:
   - init: sh wasm-cloud-base/init.sh
     command: sh wasm-cloud-base/command.sh
 
+ports:
+  - port: 4000
+    visibility: private
+    onOpen: open-preview
+
 github:
   prebuilds:
     master: true
@@ -15,3 +20,6 @@ vscode:
     - serayuzgur.crates
     - vscode.rust
     - bungcip.better-toml
+
+image:
+  file: .gitpod.Dockerfile
