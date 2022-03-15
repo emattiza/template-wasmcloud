@@ -4,7 +4,7 @@
 #   redis (for the kvredis capability provider)
 #   wasmcloud_host
 
-version: "3"
+version: "3.2"
 services:
   nats:
     image: nats:2.3
@@ -23,7 +23,11 @@ services:
       - "5000:5000"
   wasmcloud:
     image: wasmcloud/wasmcloud_host:latest
-    command: " /opt/app/bin/wasmcloud_host foreground"
+    command: "/opt/app/bin/wasmcloud_host foreground"
+    volumes:
+      - type: bind
+        source: ../
+        target: /workspace/template-wasmcloud
     environment:
       - WASMCLOUD_RPC_HOST=nats
       - WASMCLOUD_CTL_HOST=nats
