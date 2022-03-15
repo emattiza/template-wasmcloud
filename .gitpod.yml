@@ -1,6 +1,8 @@
 tasks:
-  - init: sh wasm-cloud-base/init.sh
-    command: sh wasm-cloud-base/command.sh
+  - init: |
+      sh wasm-cloud-base/init.sh
+    command: |
+      sh wasm-cloud-base/command.sh
 
 ports:
   - port: 4000

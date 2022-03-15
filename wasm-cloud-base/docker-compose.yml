@@ -27,7 +27,7 @@ services:
     volumes:
       - type: bind
         source: ../
-        target: /workspace/template-wasmcloud
+        target: $DIR
     environment:
       - WASMCLOUD_RPC_HOST=nats
       - WASMCLOUD_CTL_HOST=nats
