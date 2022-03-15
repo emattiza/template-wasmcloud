@@ -24,7 +24,7 @@ services:
     ports:
       - "5000:5000"
   wasmcloud:
-    image: wasmcloud/wasmcloud_host:latest
+    image: emattiza/wasmcloud_host:0.53.0-ba88ad4
     command: "/opt/app/bin/wasmcloud_host foreground"
     volumes:
       - type: bind
