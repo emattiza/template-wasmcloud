@@ -1,6 +1,6 @@
 # A **wasmCloud** template on Gitpod
 
-This is a [**wasmCloud**](https://link-to-the-wasmCloud-website.com) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
+This is a [**wasmCloud**](https://wasmcloud.dev/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
 
 ## Next Steps
 
@@ -17,9 +17,8 @@ Click the above "Open in Gitpod" button to start a new workspace. Once you're re
 
 ### An existing project
 
-To get started with **wasmCloud** on Gitpod, add a [`.gitpod.yml`](./.gitpod.yml) file which contains the configuration to improve the developer experience on Gitpod. To learn more, please see the [Getting Started](https://www.gitpod.io/docs/getting-started) documentation.
-
+You can use this repo's files as a starter to create a gitpod remote dev environment. Of note, copy the wasm-cloud-base folder for all the prebuild and docker compose magic, and copy the .gitpod.yml and .gitpod.Dockerfile for setting up the workspace image and prebuilds. If you need to make changes, see the gitpod website for references on the .gitpod.yml and [how remote dev environments work]([[https://www.gitpod.io/docs/references/gitpod-yml) .  (you can also use [JetBrains](https://www.gitpod.io/docs/ides-and-editors/intellij), all you IntelliJ-Rust fans!)
 
 ## Notes & caveats
 
-Thanks to Cosmonic and the wasmCloud team for helping to start this template repo
+Thanks to [Cosmonic](https://cosmonic.com/) and the [wasmCloud team](https://wasmcloud.dev/) for helping to start this template repo
