@@ -2,7 +2,7 @@ FROM gitpod/workspace-base:latest
 USER root
 RUN curl -s https://packagecloud.io/install/repositories/wasmcloud/core/script.deb.sh | bash && \
     apt update && \
-    install-packages wash zsh
+    install-packages wash zsh inotify-tools
 USER gitpod
 RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
     curl -fsSL https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable \

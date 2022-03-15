@@ -14,11 +14,13 @@ services:
       - "8222:8222"
     command: [ "-js" ]
   redis:
-    image: redis:6.2
+    image: redis:6.2-alpine
     ports:
       - "6379:6379"
   registry:
     image: registry:2.7
+    environment:
+      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
     ports:
       - "5000:5000"
   wasmcloud:
