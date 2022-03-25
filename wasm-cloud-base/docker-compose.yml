@@ -24,7 +24,7 @@ services:
     ports:
       - "5000:5000"
   wasmcloud:
-    image: wasmcloud/wasmcloud_host:0.53.0
+    image: wasmcloud/wasmcloud_host:latest
     command: "/opt/app/bin/wasmcloud_host foreground"
     volumes:
       - type: bind
@@ -37,4 +37,4 @@ services:
       - DASHBOARD_HOST=${GP_HOST}
     ports:
       - "4000:4000"
-      - "8080-8089:8080-8089" # Allows exposing examples on ports 8080-8089
+      - "8080:8080" # Allows exposing examples on ports 8080-8089
