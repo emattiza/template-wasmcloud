@@ -7,7 +7,7 @@
 version: "3.2"
 services:
   nats:
-    image: nats:2.3
+    image: nats:2.7-alpine
     ports:
       - "4222:4222"
       - "6222:6222"
@@ -23,8 +23,10 @@ services:
       - REGISTRY_HTTP_ADDR=0.0.0.0:5000
     ports:
       - "5000:5000"
+    depends_on:
+      - redis
   wasmcloud:
-    image: wasmcloud/wasmcloud_host:latest
+    image: wasmcloud/wasmcloud_host:0.54.0
     command: "/opt/app/bin/wasmcloud_host foreground"
     volumes:
       - type: bind
