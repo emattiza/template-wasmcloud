@@ -26,7 +26,7 @@ services:
     depends_on:
       - redis
   wasmcloud:
-    image: wasmcloud/wasmcloud_host:0.54.0
+    image: wasmcloud/wasmcloud_host:0.54.6
     command: "/opt/app/bin/wasmcloud_host foreground"
     volumes:
       - type: bind
