@@ -18,7 +18,7 @@ services:
     ports:
       - "6379:6379"
   registry:
-    image: registry:2.7
+    image: registry:2.8
     environment:
       - REGISTRY_HTTP_ADDR=0.0.0.0:5000
     ports:
