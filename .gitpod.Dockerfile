@@ -15,8 +15,7 @@ RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
         rustfmt \
     && .cargo/bin/rustup completions bash | sudo tee /etc/bash_completion.d/rustup.bash-completion > /dev/null \
     && .cargo/bin/rustup completions bash cargo | sudo tee /etc/bash_completion.d/rustup.cargo-bash-completion > /dev/null \
-    && grep -v -F -x -f /home/gitpod/.profile_orig /home/gitpod/.profile > /home/gitpod/.bashrc.d/80-rust && \
-    cargo install wash-cli --git https://github.com/wasmcloud/wash
+    && grep -v -F -x -f /home/gitpod/.profile_orig /home/gitpod/.profile > /home/gitpod/.bashrc.d/80-rust
 ENV PATH=$PATH:$HOME/.cargo/bin
 ENV PATH=$PATH:/usr/local/bin
 # share env see https://github.com/gitpod-io/workspace-images/issues/472
@@ -42,4 +41,5 @@ RUN curl -fsSL https://dl.google.com/go/go1.17.linux-amd64.tar.gz | tar xzs && \
 
 RUN echo "PATH="${PATH}"" | sudo tee /etc/environment
 RUN rustup target add wasm32-unknown-unknown
+RUN cargo install wash-cli --git https://github.com/wasmcloud/wash
 RUN wget -q https://github.com/tinygo-org/tinygo/releases/download/v0.23.0/tinygo_0.23.0_amd64.deb && sudo dpkg -i tinygo_0.23.0_amd64.deb
