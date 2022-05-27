@@ -5,7 +5,7 @@ RUN . /etc/os-release && \
     curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
 RUN curl -s https://packagecloud.io/install/repositories/wasmcloud/core/script.deb.sh | bash
 RUN apt update && \
-    install-packages wash zsh inotify-tools skopeo
+    install-packages zsh inotify-tools skopeo
 USER gitpod
 RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
     curl -fsSL https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable \
@@ -15,7 +15,8 @@ RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
         rustfmt \
     && .cargo/bin/rustup completions bash | sudo tee /etc/bash_completion.d/rustup.bash-completion > /dev/null \
     && .cargo/bin/rustup completions bash cargo | sudo tee /etc/bash_completion.d/rustup.cargo-bash-completion > /dev/null \
-    && grep -v -F -x -f /home/gitpod/.profile_orig /home/gitpod/.profile > /home/gitpod/.bashrc.d/80-rust
+    && grep -v -F -x -f /home/gitpod/.profile_orig /home/gitpod/.profile > /home/gitpod/.bashrc.d/80-rust && \
+    cargo install wash-cli --git https://github.com/wasmcloud/wash
 ENV PATH=$PATH:$HOME/.cargo/bin
 ENV PATH=$PATH:/usr/local/bin
 # share env see https://github.com/gitpod-io/workspace-images/issues/472
