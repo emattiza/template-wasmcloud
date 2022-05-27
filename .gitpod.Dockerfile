@@ -22,3 +22,4 @@ ENV PATH=$PATH:/usr/local/bin
 RUN echo "PATH="${PATH}"" | sudo tee /etc/environment
 RUN rustup target add wasm32-unknown-unknown
 RUN wget -q https://github.com/tinygo-org/tinygo/releases/download/v0.23.0/tinygo_0.23.0_amd64.deb && sudo dpkg -i tinygo_0.23.0_amd64.deb
+RUN go install golang.org/x/tools/cmd/goimports@latest 
